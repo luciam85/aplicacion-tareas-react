@@ -4,14 +4,23 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 const CreateTaskPopup = ({ modal, toggle, save }) => {
   const [taskName, setTaskName] = useState("");
   const [description, setDescription] = useState("");
+  const [profesor, setProfesor] = useState("");
+  const [horario, setHorario] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
     if (name === "taskName") {
       setTaskName(value);
-    } else {
+    }
+    if (name === "description") {
       setDescription(value);
+    }
+    if (name === "profesor") {
+      setProfesor(value);
+    }
+    if (name === "horario") {
+      setHorario(value);
     }
   };
 
@@ -20,6 +29,9 @@ const CreateTaskPopup = ({ modal, toggle, save }) => {
     let taskObj = {};
     taskObj["Name"] = taskName;
     taskObj["Description"] = description;
+    taskObj["Profesor"] = profesor;
+    taskObj["Horario"] = horario;
+
     save(taskObj);
   };
 
@@ -45,6 +57,26 @@ const CreateTaskPopup = ({ modal, toggle, save }) => {
             value={description}
             onChange={handleChange}
             name="description"
+          ></textarea>
+        </div>
+        <div className="form-group">
+          <label>Profesor/a</label>
+          <input
+            type="text"
+            className="form-control"
+            value={profesor}
+            onChange={handleChange}
+            name="profesor"
+          />
+        </div>
+        <div className="form-group">
+          <label>Horarios</label>
+          <textarea
+            rows="3"
+            className="form-control"
+            value={horario}
+            onChange={handleChange}
+            name="horario"
           ></textarea>
         </div>
       </ModalBody>

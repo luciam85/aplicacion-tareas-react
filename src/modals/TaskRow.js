@@ -1,3 +1,5 @@
+import React from "react";
+
 export const TaskRow = ({ task, toggleTask }) => (
   <tr key={task.name}>
     <td className="d-flex justify-content-between">

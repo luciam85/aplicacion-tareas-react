@@ -56,16 +56,24 @@ const Card = ({ taskObj, index, deleteTask, updateListArray }) => {
           {taskObj.Name}
         </span>
         <p className="mt-3">{taskObj.Description}</p>
+        <p className="mt-3">{taskObj.Profesor}</p>
+        <p className="mt-3">{taskObj.Horario}</p>
 
-        <div style={{ position: "absolute", right: "20px", bottom: "20px" }}>
+        <div style={{ position: "absolute", right: "10px", bottom: "10px" }}>
           <i
             class="far fa-edit mr-3"
-            style={{ color: colors[index % 5].primaryColor, cursor: "pointer" }}
+            style={{
+              color: colors[index % 5].primaryColor,
+              cursor: "pointer",
+            }}
             onClick={() => setModal(true)}
           ></i>
           <i
             class="fas fa-trash-alt"
-            style={{ color: colors[index % 5].primaryColor, cursor: "pointer" }}
+            style={{
+              color: colors[index % 5].primaryColor,
+              cursor: "pointer",
+            }}
             onClick={handleDelete}
           ></i>
         </div>
